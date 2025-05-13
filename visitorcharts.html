@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>visitorcharts</title>
+    <link rel="stylesheet" type="text/css" href="Bootstrap-5.3.0/css/bootstrap.css">
+    <style>
+        body::before {
+            display: block;
+            content: '';
+            height: 56px;
+        }
+
+        body {
+            color: #7F7F7F;
+            font-family: 'Oswald', sans-serif;
+            background-color: #585858;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+        <div class="container">
+            <a onclick="goHomePage()" class="navbar-brand btn">模拟股票交易网站</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <!--margin start = margin left-->
+                    <li class="nav-item">
+                        <a class="nav-link btn" onclick="goRegister()">注册</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" onclick="goLogin()">登录</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row mt-5 md-5">
+            <div class="col">
+                <button id="goBackBtn" class="btn btn-secondary">返回</button>
+            </div>
+            <div class="col text-end fs-4" id="timer">
+                刷新时间:
+            </div>
+        </div>
+        <div class="row justify-content-center" style="margin:20px 20px">
+            <div class="col-md-8" style="padding:10px 10px;border-radius:5px">
+                <div style="height:500px;" id="area" class="card-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goRegister() {
+            window.location.href = 'register.html';
+        }
+        function goHomePage() {
+            window.location.href = 'visitorpage.html';
+        }
+        function goLogin() {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="Bootstrap-5.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/charts.js"></script>
+</body>
+
+
+</html>

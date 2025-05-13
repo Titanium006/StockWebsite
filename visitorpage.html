@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visitorpage</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="Bootstrap-5.3.0/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css" />
+</head>
+
+<body>
+    <div class="content">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+            <div class="container">
+                <a onclick="goHomePage()" class="navbar-brand btn">模拟股票交易网站</a>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav ms-auto">
+                        <!--margin start = margin left-->
+                        <li class="nav-item">
+                            <a class="nav-link btn" onclick="goRegister()">注册</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn" onclick="goLogin()">登录</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <section class="mt-3 mb-5">
+            <div class="container">
+                <div class="row fs-2 mb-3 text-light">大盘行情</div>
+                <div class="row mt-2">
+                    <div class="col" id="btnGroupContainer">
+                        <input type="radio" class="btn-check" name="options" value="shanghai" id="option1"
+                            autocomplete="off" checked>
+                        <label class="btn btn-secondary" for="option1">沪市</label>
+    
+                        <input type="radio" class="btn-check" name="options" value="shenzhen" id="option2"
+                            autocomplete="off">
+                        <label class="btn btn-secondary" for="option2">深市</label>
+    
+                        <input type="radio" class="btn-check" name="options" value="GEM" id="option3" autocomplete="off">
+                        <label class="btn btn-secondary" for="option3">创业板</label>
+                    </div>
+                    <div class="col text-end fs-4" id="timer">
+                        刷新时间:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" id="ChartContainer">
+                        <table id="example" class="table text-light fs-5" cellspacing="0" width="100%"></table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="p-3 bg-dark text-white text-center footer">
+    </footer>
+    <script>
+        function goRegister() {
+            window.location.href = 'register.html';
+        }
+        function goHomePage() {
+            window.location.href = 'visitorpage.html';
+        }
+        function goLogin() {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <script type="text/javascript" src="js/jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script type="text/javascript" src="Bootstrap-5.3.0/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/homepage.js"></script>
+</body>
+
+</html>

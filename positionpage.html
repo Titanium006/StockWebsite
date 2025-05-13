@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>positionpage</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="Bootstrap-5.3.0/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css" />
+</head>
+
+<body>
+    <div class="content">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+            <div class="container">
+                <a onclick="goHomePage()" class="navbar-brand btn">模拟股票交易网站</a>
+
+                <div class="d-flex justify-content-end align-items-center">
+                    <div class="text-light mr-2" id="user-balance">用户余额：********</div>
+                    <button class="btn"><img id="eyeIcon" src="images/eye slash-fill.png" alt="icon"></button>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav ms-auto">
+                        <!--margin start = margin left-->
+                        <li class="nav-item">
+                            <a class="nav-link btn" onclick="checkPosition()">查看持仓</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn" onclick="checkRecord()">查看交易记录</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn" onclick="logout()">注销</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="mt-3 mb-5">
+            <div class="container">
+                <div class="row fs-2 mb-3 text-light">持仓记录</div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <button id="posReturnButton" class="btn btn-secondary" style="width: 100px;">返回</button>
+                    </div>
+                    <div class="col text-end fs-4" id="pos-timer">
+                        刷新时间:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" id="ChartContainer">
+                        <table id="positiontable" class="table text-light fs-5" cellspacing="0" width="100%"></table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="p-3 bg-dark text-white text-center footer">
+    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        function logout() {
+            $.ajax({
+                url: 'http://127.0.0.1:12345/logout?username=' + username,
+                success: function (data) {
+                    console.log(data);
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+        function checkRecord() {
+            window.location.href = 'recordpage.html?username=' + username;
+        }
+        function checkPosition() {
+            window.location.href = 'positionpage.html?username=' + username;
+        }
+        function goHomePage() {
+            window.location.href = 'homepage.html?username=' + username;
+        }
+    </script>
+    <script type="text/javascript" src="js/jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script type="text/javascript" src="Bootstrap-5.3.0/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/homepage.js"></script>
+    <script type="text/javascript" src="js/positionpage.js"></script>
+</body>
+
+</html>
